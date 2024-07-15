@@ -28,4 +28,10 @@ h2 = 6
 print("Input:", piles2, "h =", h2)
 print("Output:", min_eating_speed(piles2, h2))  # Expected output: 23
 
+print("\nTest case 2:")
+piles2 = [30, 11, 23, 4, 20]
+h2 = 6
+print("Input:", piles2, "h =", h2)
+print("Output:", min_eating_speed(piles2, h2))  # Expected output: 23
+
 

@@ -1,29 +1,29 @@
-def int_to_roman(num):
-    # List of Roman numeral symbols and their values, sorted in descending order
-    roman_numerals = [
-        (1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
-        (100, "C"), (90, "XC"), (50, "L"), (40, "XL"),
-        (10, "X"), (9, "IX"), (5, "V"), (4, "IV"),
-        (1, "I")
-    ]
+def min_eating_speed(piles, h):
+    def can_finish(piles, speed, h):
+        hours = 0
+        for pile in piles:
+            hours += (pile + speed - 1) // speed  # Ceiling division to count hours needed for each pile
+        return hours <= h
+
+    left, right = 1, max(piles)
+    while left < right:
+        mid = (left + right) // 2
+        if can_finish(piles, mid, h):
+            right = mid  # Try a smaller speed
+        else:
+            left = mid + 1  # Increase the speed
     
-    # Result string to build the Roman numeral
-    result = ""
-    
-    # Iterate through the list of tuples
-    for value, symbol in roman_numerals:
-        # While the current value can be subtracted from num
-        while num >= value:
-            result += symbol  # Append the symbol to the result
-            num -= value      # Subtract the value from num
-    
-    return result
+    return left
 
 # Test cases
 print("Test case 1:")
-print("Input: num = 3")
-print("Output:", int_to_roman(3))  # Expected output: "III"
+piles1 = [3, 6, 7, 11]
+h1 = 8
+print("Input:", piles1, "h =", h1)
+print("Output:", min_eating_speed(piles1, h1))  # Expected output: 4
 
 print("\nTest case 2:")
-print("Input: num = 58")
-print("Output:", int_to_roman(58))  # Expected output: "LVIII"
+piles2 = [30, 11, 23, 4, 20]
+h2 = 6
+print("Input:", piles2, "h =", h2)
+print("Output:", min_eating_speed(piles2, h2))  # Expected output: 23

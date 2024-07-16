@@ -43,7 +43,6 @@ int main(){
     // tets-case : 2
     // vector<int> arr1={100, 112, 256, 349, 770};
     // vector<int> arr2={72, 86, 113, 119, 265, 445, 892};
-    //test-case : 3
     // vector<int> arr1={1,3,5};  
     // vector<int> arr2={2,4,6,7,8,9};
 
